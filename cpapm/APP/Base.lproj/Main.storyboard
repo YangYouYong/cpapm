@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cpA-hG-u03">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--DebugController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWM-oS-G7H">
+                                <rect key="frame" x="20" y="134" width="335" height="33"/>
+                                <state key="normal" title="内存泄漏LeaksView"/>
+                                <connections>
+                                    <segue destination="kft-2a-TJe" kind="push" id="try-Je-2km"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxW-cD-exz">
+                                <rect key="frame" x="20" y="177" width="335" height="30"/>
+                                <state key="normal" title="网络监控Net(NSURLProtocol)"/>
+                                <connections>
+                                    <segue destination="rOx-om-16c" kind="push" id="hnz-hj-94I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aD1-OA-zqd">
+                                <rect key="frame" x="20" y="233" width="335" height="30"/>
+                                <state key="normal" title="卡顿监控ANT(stack trace)"/>
+                                <connections>
+                                    <segue destination="tos-py-sMh" kind="push" id="ECj-ma-Zqk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMa-Vo-ZGw">
+                                <rect key="frame" x="20" y="273" width="335" height="30"/>
+                                <state key="normal" title="方法hook检测HookCheck"/>
+                                <connections>
+                                    <action selector="hookCheck:" destination="BYZ-38-t0r" eventType="touchUpInside" id="adl-s5-v49"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5e-Ew-1sR">
+                                <rect key="frame" x="20" y="323" width="335" height="30"/>
+                                <state key="normal" title="Crash监控CrashCatch"/>
+                                <connections>
+                                    <segue destination="vYi-mq-rzo" kind="show" id="r6U-zu-3E5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="a5e-Ew-1sR" firstAttribute="leading" secondItem="bMa-Vo-ZGw" secondAttribute="leading" id="4En-qU-7gC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qWM-oS-G7H" secondAttribute="bottom" constant="500" id="CVj-J2-4HG"/>
+                            <constraint firstItem="KxW-cD-exz" firstAttribute="leading" secondItem="qWM-oS-G7H" secondAttribute="leading" id="DJq-0w-GEV"/>
+                            <constraint firstItem="a5e-Ew-1sR" firstAttribute="width" secondItem="bMa-Vo-ZGw" secondAttribute="width" id="GMI-eZ-avj"/>
+                            <constraint firstItem="aD1-OA-zqd" firstAttribute="width" secondItem="KxW-cD-exz" secondAttribute="width" id="KV9-3b-iLr"/>
+                            <constraint firstItem="bMa-Vo-ZGw" firstAttribute="leading" secondItem="aD1-OA-zqd" secondAttribute="leading" id="OWI-p8-LeW"/>
+                            <constraint firstItem="qWM-oS-G7H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QXP-tn-YgI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qWM-oS-G7H" secondAttribute="trailing" constant="20" id="Vtv-u0-jWu"/>
+                            <constraint firstItem="aD1-OA-zqd" firstAttribute="leading" secondItem="KxW-cD-exz" secondAttribute="leading" id="X7D-l1-1dt"/>
+                            <constraint firstItem="KxW-cD-exz" firstAttribute="width" secondItem="qWM-oS-G7H" secondAttribute="width" id="XpM-sb-UCM"/>
+                            <constraint firstItem="bMa-Vo-ZGw" firstAttribute="width" secondItem="aD1-OA-zqd" secondAttribute="width" id="eGI-pk-Hvy"/>
+                            <constraint firstItem="KxW-cD-exz" firstAttribute="top" secondItem="qWM-oS-G7H" secondAttribute="bottom" constant="10" id="f27-rg-HXN"/>
+                            <constraint firstItem="qWM-oS-G7H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="fWg-ZL-sIk"/>
+                            <constraint firstItem="a5e-Ew-1sR" firstAttribute="top" secondItem="bMa-Vo-ZGw" secondAttribute="bottom" constant="20" id="jSu-Zs-PYP"/>
+                            <constraint firstItem="aD1-OA-zqd" firstAttribute="top" secondItem="KxW-cD-exz" secondAttribute="bottom" constant="26" id="muO-F3-7Gn"/>
+                            <constraint firstItem="bMa-Vo-ZGw" firstAttribute="height" secondItem="aD1-OA-zqd" secondAttribute="height" id="ngB-JK-tt6"/>
+                            <constraint firstItem="aD1-OA-zqd" firstAttribute="height" secondItem="KxW-cD-exz" secondAttribute="height" id="pKs-so-6dA"/>
+                            <constraint firstItem="aD1-OA-zqd" firstAttribute="trailing" secondItem="KxW-cD-exz" secondAttribute="trailing" id="smI-wL-pRQ"/>
+                            <constraint firstItem="a5e-Ew-1sR" firstAttribute="width" secondItem="bMa-Vo-ZGw" secondAttribute="width" id="t86-wK-R0g"/>
+                            <constraint firstItem="bMa-Vo-ZGw" firstAttribute="top" secondItem="aD1-OA-zqd" secondAttribute="bottom" constant="10" id="vwP-vZ-MxH"/>
+                            <constraint firstItem="a5e-Ew-1sR" firstAttribute="height" secondItem="bMa-Vo-ZGw" secondAttribute="height" id="wNL-3g-dM5"/>
+                            <constraint firstItem="aD1-OA-zqd" firstAttribute="width" secondItem="KxW-cD-exz" secondAttribute="width" id="x6F-qU-HMy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="DebugController" id="6HD-xc-Fg8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="204" y="-74.212893553223395"/>
+        </scene>
+        <!--stack trace-->
+        <scene sceneID="KO8-Gk-PEd">
+            <objects>
+                <viewController id="tos-py-sMh" customClass="TraceViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uuk-2U-dmg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5N-Bm-LtO">
+                                <rect key="frame" x="20" y="134" width="335" height="33"/>
+                                <state key="normal" title="stack trace"/>
+                                <connections>
+                                    <action selector="ANTTask:" destination="tos-py-sMh" eventType="touchUpInside" id="ktK-hB-7Fw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RNS-ME-fJ4" firstAttribute="bottom" secondItem="U5N-Bm-LtO" secondAttribute="bottom" constant="500" id="9kl-EE-Zmn"/>
+                            <constraint firstItem="U5N-Bm-LtO" firstAttribute="top" secondItem="RNS-ME-fJ4" secondAttribute="top" constant="70" id="IeJ-Jk-vYf"/>
+                            <constraint firstItem="RNS-ME-fJ4" firstAttribute="trailing" secondItem="U5N-Bm-LtO" secondAttribute="trailing" constant="20" id="aNR-6n-nhD"/>
+                            <constraint firstItem="U5N-Bm-LtO" firstAttribute="leading" secondItem="RNS-ME-fJ4" secondAttribute="leading" constant="20" id="m9I-Ca-Xwy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RNS-ME-fJ4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="stack trace" id="RLD-Ge-IrO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Wg-IX-3DV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968.79999999999995" y="-823.53823088455783"/>
+        </scene>
+        <!--Network-->
+        <scene sceneID="UWY-F7-AhH">
+            <objects>
+                <viewController id="rOx-om-16c" customClass="NetViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lUj-Ph-Cbd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGK-VA-tXi">
+                                <rect key="frame" x="20" y="134" width="335" height="33"/>
+                                <state key="normal" title="NetAnt"/>
+                                <connections>
+                                    <action selector="NetTask:" destination="rOx-om-16c" eventType="touchUpInside" id="WP2-7P-9RT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FGK-VA-tXi" firstAttribute="top" secondItem="GvZ-rz-wu5" secondAttribute="top" constant="70" id="8nE-vF-TEw"/>
+                            <constraint firstItem="GvZ-rz-wu5" firstAttribute="trailing" secondItem="FGK-VA-tXi" secondAttribute="trailing" constant="20" id="LFK-o5-H3U"/>
+                            <constraint firstItem="GvZ-rz-wu5" firstAttribute="bottom" secondItem="FGK-VA-tXi" secondAttribute="bottom" constant="500" id="M74-dk-n1Y"/>
+                            <constraint firstItem="FGK-VA-tXi" firstAttribute="leading" secondItem="GvZ-rz-wu5" secondAttribute="leading" constant="20" id="m6O-iD-TEO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GvZ-rz-wu5"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Network" id="Yao-gc-dqE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vhe-WY-S1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969" y="-171"/>
+        </scene>
+        <!--LeaksController-->
+        <scene sceneID="roT-sO-bae">
+            <objects>
+                <viewController id="kft-2a-TJe" customClass="LeaksViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PGd-0t-O2p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5aV-EV-3Uw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="LeaksController" id="FO4-hl-ly9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zdh-Mh-aNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="970" y="475"/>
+        </scene>
+        <!--CrashController-->
+        <scene sceneID="lzq-YH-JhN">
+            <objects>
+                <viewController title="CrashController" id="vYi-mq-rzo" customClass="CrashViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tWU-fw-Rfd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXc-IY-tRm">
+                                <rect key="frame" x="20" y="134" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="xnM-jL-uuq"/>
+                                </constraints>
+                                <state key="normal" title="StackCrash"/>
+                                <connections>
+                                    <action selector="stackCrash:" destination="vYi-mq-rzo" eventType="touchUpInside" id="Ca9-pc-bkb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRw-R0-m6O">
+                                <rect key="frame" x="20" y="194" width="335" height="40"/>
+                                <state key="normal" title="Signal(EGV)Crash"/>
+                                <connections>
+                                    <action selector="signalSEVGCrash:" destination="vYi-mq-rzo" eventType="touchUpInside" id="Fqa-5Q-3C5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ifs-Ur-Rqq">
+                                <rect key="frame" x="20" y="244" width="335" height="40"/>
+                                <state key="normal" title="Signal(ABRT)Crash"/>
+                                <connections>
+                                    <action selector="signalBRTCrash:" destination="vYi-mq-rzo" eventType="touchUpInside" id="suS-OY-vnm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHm-cf-Xc1">
+                                <rect key="frame" x="20" y="294" width="335" height="40"/>
+                                <state key="normal" title="Signal(BUS)Crash"/>
+                                <connections>
+                                    <action selector="signalBUSCrash:" destination="vYi-mq-rzo" eventType="touchUpInside" id="UQo-au-Q8J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xHm-cf-Xc1" firstAttribute="top" secondItem="Ifs-Ur-Rqq" secondAttribute="bottom" constant="10" id="AJu-Pv-nHl"/>
+                            <constraint firstItem="Ifs-Ur-Rqq" firstAttribute="width" secondItem="XRw-R0-m6O" secondAttribute="width" id="B4c-k2-aij"/>
+                            <constraint firstItem="Ifs-Ur-Rqq" firstAttribute="leading" secondItem="XRw-R0-m6O" secondAttribute="leading" id="BAf-iV-d8G"/>
+                            <constraint firstItem="XRw-R0-m6O" firstAttribute="top" secondItem="mXc-IY-tRm" secondAttribute="bottom" constant="20" id="Kie-Jk-zPc"/>
+                            <constraint firstItem="Ifs-Ur-Rqq" firstAttribute="top" secondItem="XRw-R0-m6O" secondAttribute="bottom" constant="10" id="M9f-96-KPe"/>
+                            <constraint firstItem="xHm-cf-Xc1" firstAttribute="width" secondItem="Ifs-Ur-Rqq" secondAttribute="width" id="SpJ-i0-VKs"/>
+                            <constraint firstItem="Ifs-Ur-Rqq" firstAttribute="height" secondItem="XRw-R0-m6O" secondAttribute="height" id="Tnd-sN-Sak"/>
+                            <constraint firstItem="xHm-cf-Xc1" firstAttribute="height" secondItem="Ifs-Ur-Rqq" secondAttribute="height" id="cMS-pA-Gte"/>
+                            <constraint firstItem="xHm-cf-Xc1" firstAttribute="leading" secondItem="Ifs-Ur-Rqq" secondAttribute="leading" id="dF0-aN-Znd"/>
+                            <constraint firstItem="xHm-cf-Xc1" firstAttribute="leading" secondItem="Ifs-Ur-Rqq" secondAttribute="leading" id="euf-yv-npy"/>
+                            <constraint firstItem="mXc-IY-tRm" firstAttribute="top" secondItem="3Cx-eh-SCu" secondAttribute="top" constant="70" id="fF0-UJ-vZk"/>
+                            <constraint firstItem="XRw-R0-m6O" firstAttribute="leading" secondItem="mXc-IY-tRm" secondAttribute="leading" id="gMd-60-BPO"/>
+                            <constraint firstItem="mXc-IY-tRm" firstAttribute="leading" secondItem="3Cx-eh-SCu" secondAttribute="leading" constant="20" id="lFm-fY-E6j"/>
+                            <constraint firstItem="XRw-R0-m6O" firstAttribute="height" secondItem="mXc-IY-tRm" secondAttribute="height" id="mwG-X2-7W7"/>
+                            <constraint firstItem="3Cx-eh-SCu" firstAttribute="trailing" secondItem="mXc-IY-tRm" secondAttribute="trailing" constant="20" id="rRD-iZ-7hJ"/>
+                            <constraint firstItem="XRw-R0-m6O" firstAttribute="width" secondItem="mXc-IY-tRm" secondAttribute="width" id="rSK-nG-dk3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Cx-eh-SCu"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="CrashController" id="vgY-JM-dlQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jge-Ch-aYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="985" y="1150"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lvy-2K-BtA">
+            <objects>
+                <navigationController id="cpA-hG-u03" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s70-16-DuK">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fPf-m6-9a9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAM-no-orN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-474" y="-74"/>
+        </scene>
+    </scenes>
+</document>
