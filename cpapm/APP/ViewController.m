@@ -31,6 +31,7 @@
 @end
 
 /*
+
  
  #import "ViewController.h"
  
@@ -103,15 +104,21 @@
  
  - (IBAction)testCFGetClient:(id)sender {
  CFStringRef urlStr = CFSTR("http://c.hiphotos.baidu.com/image/w%3D310/sign=b8f7695888d4b31cf03c92bab7d6276f/4e4a20a4462309f76248df09710e0cf3d7cad682.jpg");
- [self testClientGet: urlStr];
+ __weak typeof(self) weakSelf = self;
+ [self testClientGet: urlStr completion:^(NSData * responseData) {
+ weakSelf.responseImageView.image = [UIImage imageWithData:responseData];
+ }];
  }
  - (IBAction)testCFGetClient2:(id)sender {
  
  CFStringRef urlStr = CFSTR("http://e.hiphotos.baidu.com/image/pic/item/500fd9f9d72a6059099ccd5a2334349b023bbae5.jpg");
- [self testClientGet: urlStr];
+ __weak typeof(self) weakSelf = self;
+ [self testClientGet: urlStr completion:^(NSData *responseData) {
+ weakSelf.secondResponseImageView.image = [UIImage imageWithData:responseData];;
+ }];
  }
  
- -(void)testClientGet:(CFStringRef)urlStr {
+ -(void)testClientGet:(CFStringRef)urlStr completion:(void(^)(NSData *))completionBlock {
  //    CFStringRef urlStr = CFSTR("http://c.hiphotos.baidu.com/image/w%3D310/sign=b8f7695888d4b31cf03c92bab7d6276f/4e4a20a4462309f76248df09710e0cf3d7cad682.jpg");
  
  //GET请求
@@ -127,10 +134,19 @@
  CFReadStreamRef readStream = CFReadStreamCreateForHTTPRequest(kCFAllocatorDefault, request);
  
  NSString *uniqueValue = [NSString stringWithFormat:@"%.2f_%@",[[NSDate date] timeIntervalSince1970], (__bridge NSString *)urlStr];
- 
- CFReadStreamSetProperty((CFReadStreamRef)readStream, CFSTR("ASIStreamID"), (__bridge CFTypeRef)(uniqueValue));
+ if (!self.responseMap) {
+ self.responseMap = @{}.mutableCopy;
+ }
+ if (self.responseMap) {
+ self.responseMap[uniqueValue] = completionBlock;
+ }
+ CFReadStreamSetProperty((CFReadStreamRef)readStream, CFSTR("CFStreamID"), (__bridge CFTypeRef)(uniqueValue));
  // uniqueValue add to call back map
- 
+ CFStringRef requestHeader = CFSTR("CFStreamID");
+ CFStringRef requestHeaderValue = (__bridge CFStringRef)uniqueValue;
+ CFHTTPMessageSetHeaderFieldValue(request, requestHeader, requestHeaderValue);
+ NSMutableDictionary *proxyToUse = @{@"CFStreamID": uniqueValue};
+ CFReadStreamSetProperty(readStream, kCFStreamPropertyHTTPProxy, (__bridge CFTypeRef)(proxyToUse));
  //设置流的context这里将self传入,用于以后的回调
  CFStreamClientContext ctxt = {0, (__bridge void *)(self), NULL, NULL, NULL};
  
@@ -166,24 +182,40 @@
  
  //    NSLog(@"myCallBack is %@",clientCallBackInfo);
  
- static NSMutableData* imageData = nil;
+ //    static NSMutableData* imageData = nil;
+ NSDictionary *proxyInfo = CFBridgingRelease(CFReadStreamCopyProperty(stream, kCFStreamPropertyHTTPProxy));
+ ViewController *client = (__bridge ViewController *)clientCallBackInfo;
+ 
+ CFTypeRef uniqueValue = (__bridge CFTypeRef)(proxyInfo[@"CFStreamID"]);
+ 
+ if (!client.responseDataMap) {
+ client.responseDataMap = @{}.mutableCopy;
+ }
+ //    if (client.responseDataMap && [(__bridge NSString *)uniqueValue length] > 0) {
+ //        client.responseDataMap[(__bridge NSString *)(uniqueValue)] = [NSMutableData data];
+ //    }
+ //    NSLog(@"uniqueId:%@,time:%.2f",(__bridge NSString *)uniqueValue, [[NSDate date] timeIntervalSince1970]);
  
  if(type == kCFStreamEventHasBytesAvailable){
+ 
  UInt8 buff[255];
  long length = CFReadStreamRead(stream, buff, 255);
- //        NSLog(@"length is %ld",length);
+ NSMutableData *imageData = client.responseDataMap[(__bridge NSString *)(uniqueValue)];
  if(!imageData){
  imageData = [[NSMutableData alloc] init];
  }
  [imageData appendBytes:buff length:length];
  
- 
+ client.responseDataMap[(__bridge NSString *)(uniqueValue)] = imageData;
  }else if(type == kCFStreamEventEndEncountered){
  
- UIImage* image = [UIImage imageWithData:imageData];
- // update image
- [(__bridge ViewController *)clientCallBackInfo responseImageView].image = image;
- imageData = nil;
+ void(^completionBlock)(NSData *) = client.responseMap[(__bridge NSString *)(uniqueValue)];
+ if (completionBlock) {
+ NSData *resData = client.responseDataMap[(__bridge NSString *)(uniqueValue)];
+ completionBlock(resData);
+ // remove this request map key values
+ }
+ 
  CFReadStreamClose(stream);
  CFReadStreamUnscheduleFromRunLoop(stream,CFRunLoopGetCurrent(),kCFRunLoopCommonModes);
  }
