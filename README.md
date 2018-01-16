@@ -3,6 +3,7 @@
 1. [卡顿监控](#Blocked)
 1. [内存泄露监控](#Leaks)
 1. [网络监控](#Network)
+	* [基于CFNetwork的监控](#fishhook)
 1. [crash监控](#Crash)
 1. [方法调换监控](#HookCheck)
 
@@ -55,6 +56,67 @@ Detect Possible Controller Leak: LeaksViewController
 }
 
 ```
+
+#### <a id='fishhook'> 基于CFNetwork的监控  </a>
+
+> 拦截CFNetwork 下的网络请求. 校验DNS拦截, 请求信息, 网络性能, 响应时间等信息.
+> 
+> 暂时未做响应body的拦截
+
+```
+void hooked_proxyCallBack(CFReadStreamRef stream,CFStreamEventType type,void *clientCallBackInfo){
+
+    NSDictionary *proxyInfo = CFBridgingRelease(CFReadStreamCopyProperty(stream, kCFStreamPropertyHTTPProxy));
+    NSString *requestId = proxyInfo[CFRequest_KEY];
+    NSMutableDictionary *proxyCallBackMap = [CFNetProxy sharedInstance].requestMap;
+
+    CFReadStreamClientCallBack original_callback = NULL;
+    if (clientCallBackInfo != NULL) {
+        CFNetProxyModel *proxy = proxyCallBackMap[requestId];
+        if (proxy) {
+            original_callback = [proxy.callbackPointer pointerValue];
+        }else{
+            NSLog(@"missed_data");
+        }
+    }
+    
+    CFReadStreamRef readStream = stream;
+    
+    if(type == kCFStreamEventHasBytesAvailable){
+        
+        CFNetProxyModel *proxy = proxyCallBackMap[requestId];
+        if (proxy) {
+            // proxy receive data
+            /**
+                UInt8 buff[255];
+                long length = CFReadStreamRead(stream, buff, 255);
+                NSMutableData *mutiData = proxy.bufferData;
+                if(!mutiData){
+                    mutiData = [[NSMutableData alloc] init];
+                }
+                [mutiData appendBytes:buff length:length];
+             
+                proxy.bufferData = mutiData;
+             */
+        }
+        
+    }else if(type == kCFStreamEventEndEncountered){
+
+        // end data
+        CFNetProxyModel *proxy = proxyCallBackMap[requestId];
+        if (proxy) {
+            proxy.responseData = proxy.bufferData;
+        }
+        NSLog(@"proxy complete");
+    }
+    
+    if (original_callback != NULL) {
+        original_callback(readStream, type, clientCallBackInfo);
+    }
+}
+
+```
+
 
 ### <a id='Crash'> crash监控  </a>
 
@@ -115,8 +177,9 @@ Detect Possible Controller Leak: LeaksViewController
 ```
 
 
+
 TODO: 
-> fishhook 监控基于CFNetwork的网络请求
+> <del> fishhook 监控基于CFNetwork的网络请求 </del>
 
 > CPU爆表 & 内存爆表监控
 

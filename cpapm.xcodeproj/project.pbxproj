@@ -38,6 +38,10 @@
 		C049561C2007397000660AA8 /* WTObjectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955F52007396F00660AA8 /* WTObjectProxy.m */; };
 		C049561D2007397000660AA8 /* WTLeaksDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955F62007396F00660AA8 /* WTLeaksDetector.m */; };
 		C049561E2007397000660AA8 /* NSObject+Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955F72007396F00660AA8 /* NSObject+Detector.m */; };
+		C086373F200DEED80099EED3 /* CFNetProxyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0863739200DEED70099EED3 /* CFNetProxyModel.m */; };
+		C0863740200DEED80099EED3 /* CFNet.m in Sources */ = {isa = PBXBuildFile; fileRef = C086373D200DEED70099EED3 /* CFNet.m */; };
+		C0863741200DEED80099EED3 /* CFNetProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C086373E200DEED70099EED3 /* CFNetProxy.m */; };
+		C0863744200DF0F20099EED3 /* Hook_CFNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C0863742200DF0F20099EED3 /* Hook_CFNetwork.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +113,14 @@
 		C04955F82007396F00660AA8 /* UIView+Detector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Detector.h"; sourceTree = "<group>"; };
 		C04955F92007396F00660AA8 /* DetectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectorProtocol.h; sourceTree = "<group>"; };
 		C06A5DA11FF4881E0013FB75 /* cpapm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cpapm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0863739200DEED70099EED3 /* CFNetProxyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFNetProxyModel.m; sourceTree = "<group>"; };
+		C086373A200DEED70099EED3 /* CFNetProxyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFNetProxyModel.h; sourceTree = "<group>"; };
+		C086373B200DEED70099EED3 /* CFNetProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFNetProxy.h; sourceTree = "<group>"; };
+		C086373C200DEED70099EED3 /* CFNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFNet.h; sourceTree = "<group>"; };
+		C086373D200DEED70099EED3 /* CFNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFNet.m; sourceTree = "<group>"; };
+		C086373E200DEED70099EED3 /* CFNetProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFNetProxy.m; sourceTree = "<group>"; };
+		C0863742200DF0F20099EED3 /* Hook_CFNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hook_CFNetwork.m; sourceTree = "<group>"; };
+		C0863743200DF0F20099EED3 /* Hook_CFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hook_CFNetwork.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -228,6 +240,14 @@
 		C04955D22007396F00660AA8 /* Net */ = {
 			isa = PBXGroup;
 			children = (
+				C0863743200DF0F20099EED3 /* Hook_CFNetwork.h */,
+				C0863742200DF0F20099EED3 /* Hook_CFNetwork.m */,
+				C086373C200DEED70099EED3 /* CFNet.h */,
+				C086373D200DEED70099EED3 /* CFNet.m */,
+				C086373B200DEED70099EED3 /* CFNetProxy.h */,
+				C086373E200DEED70099EED3 /* CFNetProxy.m */,
+				C086373A200DEED70099EED3 /* CFNetProxyModel.h */,
+				C0863739200DEED70099EED3 /* CFNetProxyModel.m */,
 				C04955D32007396F00660AA8 /* NetProtocol.h */,
 				C04955D42007396F00660AA8 /* NetAntURLSessionConfiguration.h */,
 				C04955D52007396F00660AA8 /* NetAnt.m */,
@@ -388,9 +408,11 @@
 				C04956052007397000660AA8 /* CrashViewController.m in Sources */,
 				C04956162007397000660AA8 /* CrashCatcher.m in Sources */,
 				C04956032007397000660AA8 /* ViewController.m in Sources */,
+				C0863740200DEED80099EED3 /* CFNet.m in Sources */,
 				C049561C2007397000660AA8 /* WTObjectProxy.m in Sources */,
 				C04956042007397000660AA8 /* EVGView.m in Sources */,
 				C049560D2007397000660AA8 /* ANT.m in Sources */,
+				C0863744200DF0F20099EED3 /* Hook_CFNetwork.m in Sources */,
 				C049560C2007397000660AA8 /* ANTPingThread.m in Sources */,
 				C04956012007397000660AA8 /* TraceViewController.m in Sources */,
 				C04956172007397000660AA8 /* WTBacktrace.m in Sources */,
@@ -404,8 +426,10 @@
 				C049561D2007397000660AA8 /* WTLeaksDetector.m in Sources */,
 				C049561A2007397000660AA8 /* UIView+Detector.m in Sources */,
 				C04956142007397000660AA8 /* NSObject+MethodSwizzleList.m in Sources */,
+				C086373F200DEED80099EED3 /* CFNetProxyModel.m in Sources */,
 				C04956002007397000660AA8 /* NetViewController.m in Sources */,
 				C049560F2007397000660AA8 /* NetProtocol.m in Sources */,
+				C0863741200DEED80099EED3 /* CFNetProxy.m in Sources */,
 				C04956092007397000660AA8 /* AppDelegate.m in Sources */,
 				C04956112007397000660AA8 /* method_check.c in Sources */,
 				C049560A2007397000660AA8 /* LeaksViewController.m in Sources */,

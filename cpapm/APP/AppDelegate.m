@@ -7,11 +7,9 @@
 //
 
 #import "AppDelegate.h"
-//#import <MLeaksFinder/MLeaksFinder.h>
-//#import <PLeakSniffer/PLeakSniffer.h>
 #import "CrashCatcher.h"
 #import "WTLeaksDetector.h"
-//#import "DSSignalHandler.h"
+#import "CFNet.h"
 
 @interface AppDelegate ()
 
@@ -21,11 +19,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    // PLeakSniffer check
+
 //    [[PLeakSniffer sharedInstance] installLeakSniffer];
     [[CrashCatcher sharedInstance] setOpen:true];
     [[WTLeaksDetector sharedInstance] startDetector];
+    [CFNet install];
     NSLog(@"home: %@",NSHomeDirectory());
     return YES;
 }

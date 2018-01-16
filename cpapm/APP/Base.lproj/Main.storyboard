@@ -133,13 +133,48 @@
                                     <action selector="NetTask:" destination="rOx-om-16c" eventType="touchUpInside" id="WP2-7P-9RT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYp-Ip-7jG">
+                                <rect key="frame" x="20" y="214" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="40M-NK-nCs"/>
+                                </constraints>
+                                <state key="normal" title="CFNet"/>
+                                <connections>
+                                    <action selector="CFNetTask:" destination="rOx-om-16c" eventType="touchUpInside" id="PJE-MB-tuy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJo-hR-agT">
+                                <rect key="frame" x="20" y="274" width="335" height="30"/>
+                                <state key="normal" title="CFNetGet2"/>
+                                <connections>
+                                    <action selector="CFNetTask2:" destination="rOx-om-16c" eventType="touchUpInside" id="Uj6-4s-tDU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygT-EL-JSy">
+                                <rect key="frame" x="20" y="334" width="335" height="30"/>
+                                <state key="normal" title="CFNetProxyBenchmark"/>
+                                <connections>
+                                    <action selector="CFNetBenchmark:" destination="rOx-om-16c" eventType="touchUpInside" id="Iu5-on-9CI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="TJo-hR-agT" firstAttribute="trailing" secondItem="LYp-Ip-7jG" secondAttribute="trailing" id="0d6-h0-bcg"/>
+                            <constraint firstItem="LYp-Ip-7jG" firstAttribute="top" secondItem="FGK-VA-tXi" secondAttribute="top" constant="80" id="816-Wo-MpI"/>
                             <constraint firstItem="FGK-VA-tXi" firstAttribute="top" secondItem="GvZ-rz-wu5" secondAttribute="top" constant="70" id="8nE-vF-TEw"/>
+                            <constraint firstItem="TJo-hR-agT" firstAttribute="leading" secondItem="LYp-Ip-7jG" secondAttribute="leading" id="DKi-FF-Odh"/>
+                            <constraint firstItem="ygT-EL-JSy" firstAttribute="top" secondItem="TJo-hR-agT" secondAttribute="top" constant="60" id="Gak-1N-flD"/>
                             <constraint firstItem="GvZ-rz-wu5" firstAttribute="trailing" secondItem="FGK-VA-tXi" secondAttribute="trailing" constant="20" id="LFK-o5-H3U"/>
                             <constraint firstItem="GvZ-rz-wu5" firstAttribute="bottom" secondItem="FGK-VA-tXi" secondAttribute="bottom" constant="500" id="M74-dk-n1Y"/>
+                            <constraint firstItem="ygT-EL-JSy" firstAttribute="leading" secondItem="TJo-hR-agT" secondAttribute="leading" id="NGp-P2-f63"/>
+                            <constraint firstItem="LYp-Ip-7jG" firstAttribute="leading" secondItem="FGK-VA-tXi" secondAttribute="leading" id="S1h-X2-8R1"/>
+                            <constraint firstItem="ygT-EL-JSy" firstAttribute="height" secondItem="TJo-hR-agT" secondAttribute="height" id="Uzs-E5-AhS"/>
+                            <constraint firstItem="ygT-EL-JSy" firstAttribute="trailing" secondItem="TJo-hR-agT" secondAttribute="trailing" id="aBy-0T-3xQ"/>
+                            <constraint firstItem="TJo-hR-agT" firstAttribute="height" secondItem="LYp-Ip-7jG" secondAttribute="height" id="jgI-gu-Lg9"/>
                             <constraint firstItem="FGK-VA-tXi" firstAttribute="leading" secondItem="GvZ-rz-wu5" secondAttribute="leading" constant="20" id="m6O-iD-TEO"/>
+                            <constraint firstItem="TJo-hR-agT" firstAttribute="top" secondItem="LYp-Ip-7jG" secondAttribute="top" constant="60" id="qqu-Uh-ijc"/>
+                            <constraint firstItem="LYp-Ip-7jG" firstAttribute="trailing" secondItem="FGK-VA-tXi" secondAttribute="trailing" id="rhq-lJ-tod"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GvZ-rz-wu5"/>
                     </view>
@@ -147,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vhe-WY-S1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="969" y="-171"/>
+            <point key="canvasLocation" x="968.79999999999995" y="-171.36431784107947"/>
         </scene>
         <!--LeaksController-->
         <scene sceneID="roT-sO-bae">
