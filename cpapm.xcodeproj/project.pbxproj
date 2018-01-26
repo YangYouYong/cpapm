@@ -15,7 +15,7 @@
 		C04956052007397000660AA8 /* CrashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955C02007396F00660AA8 /* CrashViewController.m */; };
 		C04956062007397000660AA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04955C12007396F00660AA8 /* LaunchScreen.storyboard */; };
 		C04956072007397000660AA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04955C32007396F00660AA8 /* Main.storyboard */; };
-		C04956082007397000660AA8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955C52007396F00660AA8 /* main.m */; };
+		C04956082007397000660AA8 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = C04955C52007396F00660AA8 /* main.mm */; };
 		C04956092007397000660AA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955C62007396F00660AA8 /* AppDelegate.m */; };
 		C049560A2007397000660AA8 /* LeaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955C82007396F00660AA8 /* LeaksViewController.m */; };
 		C049560B2007397000660AA8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C04955CA2007396F00660AA8 /* Info.plist */; };
@@ -38,6 +38,7 @@
 		C049561C2007397000660AA8 /* WTObjectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955F52007396F00660AA8 /* WTObjectProxy.m */; };
 		C049561D2007397000660AA8 /* WTLeaksDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955F62007396F00660AA8 /* WTLeaksDetector.m */; };
 		C049561E2007397000660AA8 /* NSObject+Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955F72007396F00660AA8 /* NSObject+Detector.m */; };
+		C066A0C0201B6C5100D939C8 /* XXNetwork.mm in Sources */ = {isa = PBXBuildFile; fileRef = C066A0BF201B6C5100D939C8 /* XXNetwork.mm */; };
 		C086373F200DEED80099EED3 /* CFNetProxyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0863739200DEED70099EED3 /* CFNetProxyModel.m */; };
 		C0863740200DEED80099EED3 /* CFNet.m in Sources */ = {isa = PBXBuildFile; fileRef = C086373D200DEED70099EED3 /* CFNet.m */; };
 		C0863741200DEED80099EED3 /* CFNetProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C086373E200DEED70099EED3 /* CFNetProxy.m */; };
@@ -67,7 +68,7 @@
 		C04955C02007396F00660AA8 /* CrashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashViewController.m; sourceTree = "<group>"; };
 		C04955C22007396F00660AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C04955C42007396F00660AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C04955C52007396F00660AA8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C04955C52007396F00660AA8 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		C04955C62007396F00660AA8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C04955C82007396F00660AA8 /* LeaksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaksViewController.m; sourceTree = "<group>"; };
 		C04955C92007396F00660AA8 /* LeaksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaksViewController.h; sourceTree = "<group>"; };
@@ -112,6 +113,9 @@
 		C04955F72007396F00660AA8 /* NSObject+Detector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Detector.m"; sourceTree = "<group>"; };
 		C04955F82007396F00660AA8 /* UIView+Detector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Detector.h"; sourceTree = "<group>"; };
 		C04955F92007396F00660AA8 /* DetectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectorProtocol.h; sourceTree = "<group>"; };
+		C066A0BD201B6BA700D939C8 /* HTTPRequest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HTTPRequest.hpp; sourceTree = "<group>"; };
+		C066A0BE201B6C5100D939C8 /* XXNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNetwork.h; sourceTree = "<group>"; };
+		C066A0BF201B6C5100D939C8 /* XXNetwork.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XXNetwork.mm; sourceTree = "<group>"; };
 		C06A5DA11FF4881E0013FB75 /* cpapm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cpapm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0863739200DEED70099EED3 /* CFNetProxyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFNetProxyModel.m; sourceTree = "<group>"; };
 		C086373A200DEED70099EED3 /* CFNetProxyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFNetProxyModel.h; sourceTree = "<group>"; };
@@ -167,7 +171,7 @@
 				C04955BC2007396F00660AA8 /* Crash */,
 				C04955C12007396F00660AA8 /* LaunchScreen.storyboard */,
 				C04955C32007396F00660AA8 /* Main.storyboard */,
-				C04955C52007396F00660AA8 /* main.m */,
+				C04955C52007396F00660AA8 /* main.mm */,
 				C04955C62007396F00660AA8 /* AppDelegate.m */,
 				C04955C72007396F00660AA8 /* Leaks */,
 				C04955CA2007396F00660AA8 /* Info.plist */,
@@ -240,6 +244,7 @@
 		C04955D22007396F00660AA8 /* Net */ = {
 			isa = PBXGroup;
 			children = (
+				C066A0BC201B6B5700D939C8 /* SocketBasedRequest */,
 				C0863743200DF0F20099EED3 /* Hook_CFNetwork.h */,
 				C0863742200DF0F20099EED3 /* Hook_CFNetwork.m */,
 				C086373C200DEED70099EED3 /* CFNet.h */,
@@ -314,6 +319,16 @@
 				C04955F92007396F00660AA8 /* DetectorProtocol.h */,
 			);
 			path = Leaks;
+			sourceTree = "<group>";
+		};
+		C066A0BC201B6B5700D939C8 /* SocketBasedRequest */ = {
+			isa = PBXGroup;
+			children = (
+				C066A0BD201B6BA700D939C8 /* HTTPRequest.hpp */,
+				C066A0BE201B6C5100D939C8 /* XXNetwork.h */,
+				C066A0BF201B6C5100D939C8 /* XXNetwork.mm */,
+			);
+			path = SocketBasedRequest;
 			sourceTree = "<group>";
 		};
 		C06A5D981FF4881E0013FB75 = {
@@ -405,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C066A0C0201B6C5100D939C8 /* XXNetwork.mm in Sources */,
 				C04956052007397000660AA8 /* CrashViewController.m in Sources */,
 				C04956162007397000660AA8 /* CrashCatcher.m in Sources */,
 				C04956032007397000660AA8 /* ViewController.m in Sources */,
@@ -420,7 +436,7 @@
 				C049561B2007397000660AA8 /* UIViewController+Detector.m in Sources */,
 				C04956132007397000660AA8 /* fishhook.c in Sources */,
 				C04956182007397000660AA8 /* BSBacktraceLogger.m in Sources */,
-				C04956082007397000660AA8 /* main.m in Sources */,
+				C04956082007397000660AA8 /* main.mm in Sources */,
 				C04956192007397000660AA8 /* UINavigationController+Detector.m in Sources */,
 				C049560E2007397000660AA8 /* NetAnt.m in Sources */,
 				C049561D2007397000660AA8 /* WTLeaksDetector.m in Sources */,
@@ -573,6 +589,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T37346B46H;
 				INFOPLIST_FILE = cpapm/APP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cpbee.cpapm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -588,6 +605,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T37346B46H;
 				INFOPLIST_FILE = cpapm/APP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cpbee.cpapm;
 				PRODUCT_NAME = "$(TARGET_NAME)";

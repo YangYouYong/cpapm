@@ -11,6 +11,8 @@
 #import "WTLeaksDetector.h"
 #import "CFNet.h"
 
+#import "XXNetwork.h"
+
 @interface AppDelegate ()
 
 @end
@@ -25,6 +27,15 @@
     [[WTLeaksDetector sharedInstance] startDetector];
     [CFNet install];
     NSLog(@"home: %@",NSHomeDirectory());
+    
+    for (int i = 0; i < 100; i++) {
+        NSLog(@"request: %d",i);
+        [[XXNetwork sharedInstance] GET:@"http://httpbin.org/ip" parms:nil completion:^(NSData *responseData, NSError *error) {
+            id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
+            NSLog(@"response: %@",json);
+        }];
+    }
+    
     return YES;
 }
 
