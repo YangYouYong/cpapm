@@ -10,14 +10,30 @@
 #include <fstream>
 #include "HTTPRequest.hpp"
 #import "XXNetwork.h"
+#import "CHttpRequest.h"
+
+void responseCallBack(const char *requestIdentifier, char *resData, int status){
+    // completion
+    NSString *identifier = [NSString stringWithUTF8String:requestIdentifier];
+    RequestTask *task = [XXNetwork sharedInstance].requestTaskMap[identifier];
+    if (status != 1) {
+        NSData *data = [NSData dataWithBytes:resData length:strlen(resData)];
+        [task appendData:data];
+    }else{
+        CompletionBlock completion = task.completionBlock;
+        if (completion) {
+            completion(task.responseData, nil);
+        }
+    }
+    
+}
 
 @interface XXNetwork()
 
 @property (nonatomic, strong) NSOperationQueue *queue;
-@property (nonatomic, strong) NSMutableDictionary *requestTaskMap;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *requestTaskMap;
 
 @end
-
 
 @implementation XXNetwork
 
@@ -41,10 +57,14 @@ completion:(CompletionBlock)completionBlock {
     
     NSDate *now = [NSDate date];
     NSString *requestTaskIdentifier = [url stringByAppendingString:[NSString stringWithFormat:@"_%.2f",[now timeIntervalSince1970]]];
-    self.requestTaskMap[requestTaskIdentifier] = [completionBlock copy];
+    RequestTask *requestTask = [RequestTask new];
+    requestTask.requestIdentifier = requestTaskIdentifier;
+    requestTask.completionBlock = [completionBlock copy];
+    self.requestTaskMap[requestTaskIdentifier] = requestTask;
     
     NSBlockOperation *requestOperation = [NSBlockOperation blockOperationWithBlock:^{
        
+        /*
         std::string requestUrl = [url UTF8String];
         std::string method = "GET";
         std::string arguments = ""; // parms format
@@ -76,10 +96,49 @@ completion:(CompletionBlock)completionBlock {
                 self.requestTaskMap[requestTaskIdentifier] = nil;
             }
         }
+         */
+        
+        NSString *sliceString = @"://";
+        NSRange range = [url rangeOfString:sliceString];
+        NSString *clippedString = [url substringFromIndex:(range.location + range.length)];
+        NSRange domainEndRange = [clippedString rangeOfString:@"/"];
+        NSString *domain = [clippedString substringToIndex:domainEndRange.location];
+        NSString *path = [clippedString substringFromIndex:domainEndRange.location];
+//        if (![[path substringFromIndex:(path.length - 2)] isEqualToString:@"/"]) {
+//            path = [path stringByAppendingString:@"/"];
+//        }
+        
+        
+        // link requestId and call back data
+        
+        getRequest([requestTaskIdentifier UTF8String],"HTTP/1.1", [domain UTF8String], [path UTF8String], responseCallBack);
         
     }];
     
     [self.queue addOperation:requestOperation];
+}
+
+@end
+
+@interface RequestTask()
+
+@property (nonatomic, strong, readwrite) NSData *responseData;
+@property (nonatomic, strong) NSMutableData *processData;
+
+@end
+
+@implementation RequestTask
+
+-(NSData *)responseData {
+    return [NSData dataWithData:self.processData];
+}
+
+-(void)appendData:(NSData *)data {
+    if (self.processData) {
+        [self.processData appendData:data];
+    }else{
+        self.processData = [data mutableCopy];
+    }
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02C7E86201EB56A00864202 /* CHttpRequest.c in Sources */ = {isa = PBXBuildFile; fileRef = C02C7E85201EB56A00864202 /* CHttpRequest.c */; };
 		C04956002007397000660AA8 /* NetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955B62007396F00660AA8 /* NetViewController.m */; };
 		C04956012007397000660AA8 /* TraceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04955B82007396F00660AA8 /* TraceViewController.m */; };
 		C04956022007397000660AA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04955BA2007396F00660AA8 /* Assets.xcassets */; };
@@ -55,6 +56,8 @@
 		793777F7B453E41A4F73ED13 /* Pods-WellTangAPMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WellTangAPMTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WellTangAPMTests/Pods-WellTangAPMTests.debug.xcconfig"; sourceTree = "<group>"; };
 		94E44CDAF41D5A829F9A3AE5 /* Pods-WellTangAPMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WellTangAPMUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WellTangAPMUITests/Pods-WellTangAPMUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A345BAC4213B5586CDE34A26 /* libPods-WellTangAPMUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WellTangAPMUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C02C7E84201EB56A00864202 /* CHttpRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHttpRequest.h; sourceTree = "<group>"; };
+		C02C7E85201EB56A00864202 /* CHttpRequest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CHttpRequest.c; sourceTree = "<group>"; };
 		C04955B32007396F00660AA8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C04955B52007396F00660AA8 /* NetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetViewController.h; sourceTree = "<group>"; };
 		C04955B62007396F00660AA8 /* NetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetViewController.m; sourceTree = "<group>"; };
@@ -325,6 +328,8 @@
 			isa = PBXGroup;
 			children = (
 				C066A0BD201B6BA700D939C8 /* HTTPRequest.hpp */,
+				C02C7E84201EB56A00864202 /* CHttpRequest.h */,
+				C02C7E85201EB56A00864202 /* CHttpRequest.c */,
 				C066A0BE201B6C5100D939C8 /* XXNetwork.h */,
 				C066A0BF201B6C5100D939C8 /* XXNetwork.mm */,
 			);
@@ -442,6 +447,7 @@
 				C049561D2007397000660AA8 /* WTLeaksDetector.m in Sources */,
 				C049561A2007397000660AA8 /* UIView+Detector.m in Sources */,
 				C04956142007397000660AA8 /* NSObject+MethodSwizzleList.m in Sources */,
+				C02C7E86201EB56A00864202 /* CHttpRequest.c in Sources */,
 				C086373F200DEED80099EED3 /* CFNetProxyModel.m in Sources */,
 				C04956002007397000660AA8 /* NetViewController.m in Sources */,
 				C049560F2007397000660AA8 /* NetProtocol.m in Sources */,

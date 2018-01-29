@@ -28,10 +28,14 @@
     [CFNet install];
     NSLog(@"home: %@",NSHomeDirectory());
     
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 1; i++) {
         NSLog(@"request: %d",i);
         [[XXNetwork sharedInstance] GET:@"http://httpbin.org/ip" parms:nil completion:^(NSData *responseData, NSError *error) {
             id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
+            if (json == nil) {
+                NSString *str = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+                NSLog(@"%@",str);
+            }
             NSLog(@"response: %@",json);
         }];
     }
